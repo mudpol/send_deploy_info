@@ -1,11 +1,18 @@
 FROM node:8.16-alpine
 
-COPY send_deploy_info/ /home/
+WORKDIR /home/node/
 
-EXPOSE 3500
+COPY teamcity-push-gw-proxy/ $WORKDIR
 
-WORKDIR /home/
+RUN npm config set package-lock false &&\
+    npm install request express
+
+ENV PORT 9100
+
+EXPOSE $PORT
+
+USER node
 
 ENTRYPOINT ["/bin/sh"]
 
-CMD ["/home/start_parser.sh"]
+CMD ["start_proxy.sh"]
