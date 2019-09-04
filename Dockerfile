@@ -11,8 +11,6 @@ ENV PGADDRESS http://localhost:9091
 
 ENV PORT 9100
 
-EXPOSE $PORT
-
 USER node
 
 ENTRYPOINT ["/bin/sh"]
