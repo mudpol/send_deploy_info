@@ -7,6 +7,8 @@ COPY teamcity-push-gw-proxy/ $WORKDIR
 RUN npm config set package-lock false &&\
     npm install request express
 
+ENV PGADDRESS http://localhost:9091
+
 ENV PORT 9100
 
 EXPOSE $PORT
