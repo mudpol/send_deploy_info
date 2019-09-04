@@ -2,6 +2,7 @@ var send_metric = require('request'); //nodejs request module
 var express = require('express'); //nodejs express module
 var app = express();
 var port = process.env.PORT; //Set ENV port, if undefined set default value from Dokerfile
+var pgaddress = process.env.PGADDRESS // set ENV pushgateway address, if undefined set default value from Dokerfile
 
 app.use(express.json({limit: '1mb'})); //increase json cache limit for express
 
@@ -26,13 +27,13 @@ and set Comment variable as undefined*/
 
   send_metric.post({
     headers: {'Content-Type' : 'text/plain'},
-    url:     'http://address:9091/metrics/job/'+request.body.build.buildName+'/instance/'+request.body.build.projectName,
+    url:     pgaddress+'/metrics/job/'+request.body.build.buildName+'/instance/'+request.body.build.projectName,
     body:    request.body.build.projectId+'{TriggeredBy="'+request.body.build.triggeredBy+'" , BuildResult="'+request.body.build.buildResult+'" , NotifyType="'+request.body.build.notifyType+'" , BuildResultDelta="'+request.body.build.buildResultDelta+'" , BuildId="'+request.body.build.buildNumber+'" , Commit="'+Commit+'" , Comment="'+Comment+'" }'+request.body.build.buildNumber+'\n',
          }
        );
 /*Send post request to prometheus pushgateway with variable from json Web Hook*/
-  console.log("Metric: "+request.body.build.projectId+'{TriggeredBy="'+request.body.build.triggeredBy+'" , BuildResult="'+request.body.build.buildResult+'" , NotifyType="'+request.body.build.notifyType+'" , BuildResultDelta="'+request.body.build.buildResultDelta+'" , BuildId="'+request.body.build.buildNumber+'" , Commit="'+Commit+'" , Comment="'+Comment+'" }'+request.body.build.buildNumber+'\n');
-  console.log('To address: http://address:9091/metrics/job/'+request.body.build.buildName+'/instance/'+request.body.build.projectName+' was send')
+  console.log("Metric: "+request.body.build.projectId+'{TriggeredBy="'+request.body.build.triggeredBy+'" , BuildResult="'+request.body.build.buildResult+'" , NotifyType="'+request.body.build.notifyType+'" , BuildResultDelta="'+request.body.build.buildResultDelta+'" , BuildId="'+request.body.build.buildNumber+'" , Commit="'+Commit+'" , Comment="'+Comment+'" }'+request.body.build.buildNumber+'was sending');
+  console.log('To address: '+pgaddress+'/metrics/job/'+request.body.build.buildName+'/instance/'+request.body.build.projectName);
 
   res.sendStatus(200); // echo the result back
 
