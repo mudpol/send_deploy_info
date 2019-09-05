@@ -4,6 +4,7 @@
   "private": "true",
   "dependencies": {
     "express": "4.17.1",
-    "request": "2.88.0"
+    "request": "2.88.0",
+    "console-stamp": "0.2.9"
   }
 }
