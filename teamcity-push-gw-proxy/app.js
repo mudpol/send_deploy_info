@@ -36,7 +36,7 @@ and set Comment variable as undefined*/
        )
        .on('response',function(response) {
          console.info("Metric: "+request.body.build.projectId+'{TriggeredBy="'+request.body.build.triggeredBy+'" , BuildResult="'+request.body.build.buildResult+'" , NotifyType="'+request.body.build.notifyType+'" , BuildResultDelta="'+request.body.build.buildResultDelta+'" , BuildId="'+request.body.build.buildNumber+'" , Commit="'+Commit+'" , Comment="'+Comment+'" }'+request.body.build.buildNumber+' was send to address: '+pgaddress+'/metrics/job/'+request.body.build.buildName+'/instance/'+request.body.build.projectName);
-         console.log(response.statusCode);
+         console.log('Remote server response code: '+response.statusCode);
        })
        .on('error', function(error) {
          console.error(error.message)
