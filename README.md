@@ -34,18 +34,19 @@ When to proxy server will came POST request from TeamCity you got info message:
 
 ```
 Where :
+ Message about accepted request.
 ```log
  [INFO]   Accepted: [object Object]
  ```
- Message about accepted request.
+ Metric body.
  ```log
  [INFO]   Metric: FullProjectName{TriggeredBy="BuildTriggeredBy" , BuildResult="success" , NotifyType="buildFinished" , BuildResultDelta="unchanged" , BuildId="14" , Commit="Commit" , Comment="Comment" }14 was send to address: http://localhost:9091/metrics/job/BuildName/instance/ProjectName
  ```
- Metric body.
+ Remote server response.
  ```log
 [LOG]    202
  ```
- Remote server response.
+
 In case if port for server already listening in log you will see :
 ```log
 [Thu Sep 05 2019 13:16:00] [ERROR]  listen EADDRINUSE :::9100
