@@ -33,17 +33,17 @@ When to proxy server will came POST request from TeamCity you got info message:
 [Thu Sep 05 2019 13:04:19] [LOG]    202
 
 ```
-Where :
+Where
 
- Message about accepted request.
+- Message about accepted request:
 ```log
  [INFO]   Accepted: [object Object]
  ```
- Metric body.
+- Metric body:
  ```log
  [INFO]   Metric: FullProjectName{TriggeredBy="BuildTriggeredBy" , BuildResult="success" , NotifyType="buildFinished" , BuildResultDelta="unchanged" , BuildId="14" , Commit="Commit" , Comment="Comment" }14 was send to address: http://localhost:9091/metrics/job/BuildName/instance/ProjectName
  ```
- Remote server response.
+- Remote server response:
  ```log
 [LOG]    202
  ```
