@@ -34,6 +34,7 @@ When to proxy server will came POST request from TeamCity you got info message:
 
 ```
 Where :
+
  Message about accepted request.
 ```log
  [INFO]   Accepted: [object Object]
