@@ -47,6 +47,10 @@ and set Comment variable as undefined*/
 
 });
 
-app.listen(port, function () {
+app
+.listen(port, function () {
   console.log('Server listening on port ' + port);
+})
+.on('error', function(error) {
+  console.error(error.message)
 }); //run web-server on port
