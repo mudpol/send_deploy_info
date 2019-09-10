@@ -5,7 +5,7 @@ WORKDIR /home/node/
 COPY teamcity-push-gw-proxy/ $WORKDIR
 
 RUN npm config set package-lock false &&\
-    npm install request express console-stamp
+    npm install express console-stamp
 
 ENV PGADDRESS http://localhost:9091
 
