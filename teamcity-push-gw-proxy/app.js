@@ -24,7 +24,7 @@ app.post('/', function(request, res){ //take post request on "/"
          }
 /* From JSON TeamCity Web Hook in array "changes" take last commit and comment
 for it, if array "changes" empty parse arry "teamcityProperties" for last commit value
-and set Comment variable as undefined*/
+and set Comment variable as undefined */
 
 
   send_metric
