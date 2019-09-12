@@ -5,6 +5,12 @@ var logTimeStamp = require('console-stamp')(console);
 
 app.use(express.json({limit: '1mb'})); //increase json cache limit for express
 
+
+app.get('/', function(request, res){
+  console.info('Accepted GET request on /');
+  res.sendStatus(200);
+});
+
 app.post('/', function(request, res){ //take post request on "/"
   console.info('Accepted: '+request.body+'\n')
 
