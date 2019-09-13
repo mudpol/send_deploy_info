@@ -20,7 +20,7 @@ app.post('/', function(request, res){ //take post request on "/"
 
 app
 .listen(port, function () {
-  console.log('Server listening on port ' + port);
+  console.log('Server start listening on port ' + port);
 })
 .on('error', function(error) {
   console.error(error.message)
